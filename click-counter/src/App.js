@@ -21,9 +21,7 @@ class App extends Component {
         >
           Increment Button
         </button>
-        <button onClick={this.onDecrement}>
-          Decrement Button
-        </button>
+        <button onClick={this.onDecrement}>Decrement Button</button>
       </div>
     )
   }
