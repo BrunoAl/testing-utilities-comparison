@@ -81,6 +81,23 @@ test("don't decrement the counter bellow 0", () => {
   expect(getByText(/the counter is/i).textContent).toContain(0)
 })
 
-// test('display error when trying to drecrement bellow 0', () => {
-//   const { getByText } = render(<App />)
-// })
+test('display error when trying to drecrement bellow 0', () => {
+  const { getByText } = render(<App />)
+  const decrementButton = getByText(/decrement button/i)
+
+  fireEvent.click(decrementButton)
+
+  getByText("Can't decrement bellow 0")
+})
+
+test("remove decrement bellow 0 when the counter is increased back", () => {
+  const { getByText, queryByText } = render(<App />)
+  const incrementButton = getByText(/increment button/i)
+  const decrementButton = getByText(/decrement button/i)
+
+  fireEvent.click(decrementButton)
+  fireEvent.click(incrementButton)
+
+  expect(queryByText("Can't decrement bellow 0")).toBeNull()
+
+})
