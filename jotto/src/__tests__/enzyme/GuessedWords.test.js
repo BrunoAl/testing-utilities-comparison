@@ -2,7 +2,7 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import { findByTestAttr, checkProps } from '../../enzymeTestUtils'
-import GuessedWords from '../../GuessedWords'
+import GuessedWords from '../../components/GuessedWords'
 
 Enzyme.configure({ adapter: new EnzymeAdapter() })
 
